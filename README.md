@@ -4,13 +4,13 @@ This is the JWT service code to generate the JWT token for accessing public APIs
 # Request:
 body:
 {
- "appId" : "<app id created in kore platform>"
+ "appId" : "app id created in kore platform"
 }
 
 headers:
-apikey : <client secret of the app created>
+apikey : "client secret of the app created"
 
 Response:
 {
-    "jwt": "<jwt token>"
+    "jwt": "jwt token"
 }
