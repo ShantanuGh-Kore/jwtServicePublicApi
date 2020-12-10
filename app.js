@@ -17,6 +17,7 @@ app.post('/api/sts', function(req, res) {
             "iat": new Date().getTime(),
             "exp": new Date(new Date().getTime() + 4 * 60 * 60 * 1000).getTime(),
             "iss": clientId,
+            "sub" : "Intercorp"
         }
         var token = jwt.sign(options, clientSecret);
         res.header("Access-Control-Allow-Origin","*");
