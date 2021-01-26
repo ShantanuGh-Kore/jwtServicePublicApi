@@ -27,7 +27,11 @@ app.post('/api/sts', function(req, res) {
 	  res.header("Content-Security-Policy","default-src 'none'");
     res.status(200).send({"jwt":token});
   } else {
-    res.status(401).send("Unauthorized");
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
+    res.header("Content-Security-Policy","default-src 'none'");
+    res.status(401).send({"Unauthorized": "Mandatory parameters missing"});
   }
         
   });
@@ -49,7 +53,11 @@ app.post('/api/public', function(req, res) {
     res.header("Content-Security-Policy","default-src 'none'");
     res.status(200).send({"jwt":token});
   } else {
-    res.status(401).send("Unauthorized");
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Referrer-Policy","origin-when-cross-origin, strict-origin-when-cross-origin");
+    res.header("Content-Security-Policy","default-src 'none'");
+    res.status(401).send({"Unauthorized": "Mandatory parameters missing"});
   }
 });
 
