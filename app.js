@@ -14,9 +14,11 @@ app.post('/api/sts', function(req, res) {
   if(req.body && req.body.appId && req.headers && req.headers.apikey){
     var clientId = req.body.appId;//req.body.clientId;
     var clientSecret = req.headers.apikey;//req.body.clientSecret;
+    var iat = new Date()/1000;
+    var exp = iat+parseInt(1200);
     var options = {
-      "iat": new Date().getTime(),
-      "exp": new Date(new Date().getTime() + 20 * 60 * 1000).getTime(),
+      "iat": iat,
+      "exp": exp,
       "iss": clientId,
       "sub" : "Intercorp"
     }
@@ -41,9 +43,11 @@ app.post('/api/public', function(req, res) {
   if(req.body && req.body.appId && req.headers && req.headers.apikey){
     var clientId = req.body.appId;//req.body.clientId;
     var clientSecret = req.headers.apikey;//req.body.clientSecret;
+    var iat = new Date()/1000;
+    var exp = iat+parseInt(1200);
     var options = {
-      "iat": new Date().getTime(),
-      "exp": new Date(new Date().getTime() + 20 * 60 * 1000).getTime(),
+      "iat": iat,
+      "exp": exp,
       "appId": clientId
     }
     var token = jwt.sign(options, clientSecret);
