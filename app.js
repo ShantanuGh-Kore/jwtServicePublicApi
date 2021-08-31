@@ -12,8 +12,8 @@ app.use(bodyparser.urlencoded({
 app.post('/api/sts', function(req, res) {
   console.log(req.headers);
   if(req.body && req.body.appId && req.headers && req.headers.apikey){
-    var clientId = req.body.appId;//req.body.clientId;
-    var clientSecret = req.headers.apikey;//req.body.clientSecret;
+    var clientId = req.body.clientId;//req.body.clientId;
+    var clientSecret = req.body.clientSecret;//req.body.clientSecret;
     var iat = new Date()/1000;
     var exp = iat+parseInt(1200);
     var options = {
