@@ -14,6 +14,7 @@ app.post('/api/sts', function(req, res) {
   if(req.body && req.body.appId && req.headers && req.headers.apikey){
     var clientId = req.body.clientId;//req.body.clientId;
     var clientSecret = req.body.clientSecret;//req.body.clientSecret;
+    var sub = req.body.identity;
     var iat = new Date()/1000;
     var exp = iat+parseInt(1200);
     var options = {
