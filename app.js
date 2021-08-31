@@ -16,12 +16,12 @@ app.post('/api/sts', function(req, res) {
     var clientSecret = req.body.clientSecret;//req.body.clientSecret;
     var sub = req.body.identity;
     var iat = new Date()/1000;
-    var exp = iat+parseInt(1200);
+    var exp = iat+parseInt(7200);
     var options = {
       "iat": iat,
       "exp": exp,
       "iss": clientId,
-      "sub" : "Intercorp"
+      "sub" : sub
     }
     var token = jwt.sign(options, clientSecret);
     res.header("Access-Control-Allow-Origin","*");
